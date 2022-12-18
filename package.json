@@ -10,14 +10,19 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:souko.helloWorld"
+    "onCommand:souko.open",
+    "onCommand:souko.openInNewWindow"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "souko.helloWorld",
-        "title": "Hello World"
+        "command": "souko.open",
+        "title": "souko: Open repository"
+      },
+      {
+        "command": "souko.openInNewWindow",
+        "title": "souko: Open repository in new window"
       }
     ]
   },
