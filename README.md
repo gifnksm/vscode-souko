@@ -1,44 +1,53 @@
-# souko README
+# `souko` README
 
-This is the README for your extension "souko". After writing up a brief description, we recommend including the following sections.
+Provides a simple interface to the souko command line utility.
+
+[Souko] is a simple command line utility that provides an easy way to organize clones of remote git repositories.
+With this extension, you can easily open a cloned repository.
+
+[Souko]: https://github.com/gifnksm/souko
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides the following commands:
 
-For example if there is an image subfolder under your extension project workspace:
+### `souko.open`
 
-\!\[feature X\]\(images/feature-x.png\)
+Opens a repository in the current workspace.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### `souko.openInNewWindow`
+
+Opens a repository in a new window.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+This extension requires the `souko` command line utility to be installed.
+
+To install `souko`, see the [installation instructions].
+
+[installation instructions]: https://github.com/gifnksm/souko#installation
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
+- `souko.command`: The command to execute souko command line utilify
 
+<!--
 ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension.
+-->
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+<!-- Users appreciate release notes as you update your extension. -->
 
 ### 1.0.0
 
-Initial release of ...
+Initial release of souko.
 
+<!--
 ### 1.0.1
 
 Fixed issue #.
@@ -46,9 +55,9 @@ Fixed issue #.
 ### 1.1.0
 
 Added features X, Y, and Z.
+-->
 
----
-
+<!--
 ## Following extension guidelines
 
 Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
@@ -69,3 +78,4 @@ You can author your README using Visual Studio Code. Here are some useful editor
 - [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+-->
