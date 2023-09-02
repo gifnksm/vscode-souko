@@ -1,11 +1,8 @@
 # `souko` README
 
-Provides a simple interface to the souko command line utility.
+Integrates [souko] into Visual Studio Code, a simple command line utility to organize clones of remote git repositories
 
-[Souko] is a simple command line utility that provides an easy way to organize clones of remote git repositories.
-With this extension, you can easily open a cloned repository.
-
-[Souko]: https://github.com/gifnksm/souko
+[souko]: https://github.com/gifnksm/souko
 
 ## Features
 
@@ -43,7 +40,7 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 <!-- Users appreciate release notes as you update your extension. -->
 
-### 1.0.0
+### 0.1.0
 
 Initial release of souko.
 
