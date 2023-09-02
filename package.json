@@ -2,13 +2,28 @@
   "name": "souko",
   "displayName": "souko",
   "description": "Integrates souko into Visual Studio Code, a simple command line utility to organize clones of remote git repositories",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "homepage": "https://github.com/gifnksm/vscode-souko",
+  "bugs": {
+    "url": "https://github.com/gifnksm/vscode-souko/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "gifnksm",
+    "email": "makoto.nksm+github@gmail.com",
+    "url": "https://github.com/gifnksm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gifnksm/vscode-souko"
+  },
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.81.0"
   },
   "categories": [
     "Other"
   ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
