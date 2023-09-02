@@ -2,7 +2,7 @@
   "name": "souko",
   "displayName": "souko",
   "description": "Integrates souko into Visual Studio Code, a simple command line utility to organize clones of remote git repositories",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/gifnksm/vscode-souko",
   "bugs": {
     "url": "https://github.com/gifnksm/vscode-souko/issues"
