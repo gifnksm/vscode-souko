@@ -9,17 +9,29 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:souko.helloWorld"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "souko.helloWorld",
-        "title": "Hello World"
+        "command": "souko.open",
+        "title": "souko: Open repository"
+      },
+      {
+        "command": "souko.openInNewWindow",
+        "title": "souko: Open repository in new window"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Souko",
+      "properties": {
+        "souko.command": {
+          "type": "string",
+          "default": "souko",
+          "description": "The command to execute souko command line utilify",
+          "ignoreSync": true
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
