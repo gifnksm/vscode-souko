@@ -60,8 +60,11 @@ class Extension {
     try {
       await this.#open(forceNewWindow);
     } catch (err: unknown) {
-      this.#logChannel.error(`Failed to open repository: ${err}`);
-      vscode.window.showErrorMessage(`Failed to open repository: ${err}`);
+      const errStr = String(err);
+      this.#logChannel.error(`Failed to open repository: ${errStr}`);
+      await vscode.window.showErrorMessage(
+        `Failed to open repository: ${errStr}`,
+      );
     }
   }
 

@@ -19,7 +19,7 @@ export class Souko {
 
   async list(): Promise<List> {
     const output = await this.#spawnWithStdout(["list", "--json"]);
-    const list: List = JSON.parse(output);
+    const list: List = JSON.parse(output) as List;
     const numRepos = list.roots
       .map((r) => r.repos.length)
       .reduce((a, b) => a + b, 0);
@@ -46,12 +46,12 @@ export class Souko {
 
         let output = "";
         proc.stdout.on("data", (data) => {
-          output += data.toString();
+          output += String(data);
         });
         proc.stdout.on("error", reject);
 
         proc.stderr.on("data", (data) => {
-          this.#logChannel.info(data.toString());
+          this.#logChannel.info(String(data));
         });
         proc.stderr.on("error", reject);
 
