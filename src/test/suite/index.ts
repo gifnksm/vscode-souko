@@ -11,7 +11,7 @@ export function run(): Promise<void> {
 
   const testsRoot = path.resolve(__dirname, "..");
 
-  return new Promise((c, e) => {
+  return new Promise((resolve, reject) => {
     const testFiles = new glob.Glob("**/**.test.js", { cwd: testsRoot });
     const testFilesStream = testFiles.stream();
 
@@ -19,20 +19,20 @@ export function run(): Promise<void> {
       mocha.addFile(path.resolve(testsRoot, file));
     });
     testFilesStream.on("error", (err) => {
-      e(err);
+      reject(err as Error);
     });
     testFilesStream.on("end", () => {
       try {
         mocha.run((failures) => {
           if (failures > 0) {
-            e(new Error(`${failures} tests failed.`));
+            reject(new Error(`${failures} tests failed.`));
           } else {
-            c();
+            resolve();
           }
         });
       } catch (err) {
         console.error(err);
-        e(err);
+        reject(err as Error);
       }
     });
   });
