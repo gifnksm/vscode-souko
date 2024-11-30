@@ -19,7 +19,7 @@
     "url": "https://github.com/gifnksm/vscode-souko"
   },
   "engines": {
-    "vscode": "^1.94.0"
+    "vscode": "^1.95.0"
   },
   "categories": [
     "Other"
