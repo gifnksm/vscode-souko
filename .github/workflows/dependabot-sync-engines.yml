@@ -1,0 +1,38 @@
+name: Sync engines.vscode for Dependabot @types/vscode updates
+
+on:
+  pull_request:
+    paths:
+      - package.json
+
+permissions:
+  contents: write
+
+jobs:
+  sync-engines-vscode:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20.x
+      - run: npm install
+      - name: Sync engines.vscode with @types/vscode
+        run: |
+          TYPES_VSCODE=$(node -p "require('./package.json').devDependencies['@types/vscode']")
+          ENGINES_VSCODE=$(node -p "require('./package.json').engines.vscode")
+          if [ "$TYPES_VSCODE" = "$ENGINES_VSCODE" ]; then
+            echo "engines.vscode already matches @types/vscode: $TYPES_VSCODE"
+            exit 0
+          fi
+          echo "Updating engines.vscode from $ENGINES_VSCODE to $TYPES_VSCODE"
+          npm pkg set engines.vscode="$TYPES_VSCODE"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "chore: sync engines.vscode with @types/vscode ($TYPES_VSCODE)"
+          git push
