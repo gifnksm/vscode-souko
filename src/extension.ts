@@ -10,7 +10,6 @@ export function activate(context: vscode.ExtensionContext) {
   souko.registerCommands(context);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function deactivate() {}
 
 const CONFIG_SECTION: string = "souko";
