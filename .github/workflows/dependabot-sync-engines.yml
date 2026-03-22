@@ -20,11 +20,10 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 20.x
-      - run: npm install
       - name: Sync engines.vscode with @types/vscode
         run: |
-          TYPES_VSCODE=$(node -p "require('./package.json').devDependencies['@types/vscode']")
-          ENGINES_VSCODE=$(node -p "require('./package.json').engines.vscode")
+          TYPES_VSCODE=$(jq -r '.devDependencies["@types/vscode"]' package.json)
+          ENGINES_VSCODE=$(jq -r '.engines.vscode' package.json)
           if [ "$TYPES_VSCODE" = "$ENGINES_VSCODE" ]; then
             echo "engines.vscode already matches @types/vscode: $TYPES_VSCODE"
             exit 0
