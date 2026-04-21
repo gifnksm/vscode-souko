@@ -97,16 +97,13 @@ class Extension {
           label: root.name,
           kind: vscode.QuickPickItemKind.Separator,
         };
-        const repos = root.repos.map(
-          (repo) =>
-            <Candidate>{
-              label: repo.relativePath,
-              description: root.name,
-              detail: repo.displayPath,
-              kind: vscode.QuickPickItemKind.Default,
-              repo,
-            },
-        );
+        const repos = root.repos.map((repo) => ({
+          label: repo.relativePath,
+          description: root.name,
+          detail: repo.displayPath,
+          kind: vscode.QuickPickItemKind.Default,
+          repo,
+        }));
         return [separator].concat(repos);
       }),
     );
