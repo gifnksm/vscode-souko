@@ -2,6 +2,10 @@ import * as path from "path";
 import Mocha from "mocha";
 import { glob } from "glob";
 
+function ensureError(error: unknown): Error {
+  return error instanceof Error ? error : new Error(String(error));
+}
+
 export function run(): Promise<void> {
   // Create the mocha test
   const mocha = new Mocha({
@@ -19,7 +23,7 @@ export function run(): Promise<void> {
       mocha.addFile(path.resolve(testsRoot, file));
     });
     testFilesStream.on("error", (err) => {
-      reject(err as Error);
+      reject(ensureError(err));
     });
     testFilesStream.on("end", () => {
       try {
@@ -32,7 +36,7 @@ export function run(): Promise<void> {
         });
       } catch (err) {
         console.error(err);
-        reject(err as Error);
+        reject(ensureError(err));
       }
     });
   });
